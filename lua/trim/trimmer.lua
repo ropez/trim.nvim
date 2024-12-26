@@ -30,6 +30,7 @@ function trimmer.enable(is_configured)
     pattern = opts.pattern,
     callback = function()
       if not has_value(config.ft_blocklist, vim.bo.filetype) then
+        vim.cmd.undojoin()
         trimmer.trim()
       end
     end,
